@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["andrea@gravityblast.com"]
   spec.description   = %q{ActiveRecord models for the MusicBrainz database.}
   spec.summary       = %q{ActiveRecord models the MusicBrainz database}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/pilu/active_musicbrainz"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
