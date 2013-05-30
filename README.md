@@ -1,6 +1,6 @@
 # ActiveMusicbrainz
 
-TODO: Write a gem description
+ActiveRecord models for the [MusicBrainz](http://musicbrainz.org/) [database](http://musicbrainz.org/doc/MusicBrainz_Database).
 
 ## Installation
 
@@ -18,7 +18,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Require ActiveMusicbrainz and initialize the database (**if you are inside a rails app, you can skip the following lines**):
+
+    require 'active_musicbrainz'
+    ActiveRecord::Base.establish_connection(YAML.load_file('path/to/config.yml'))
+
+Some models are hardcoded, others are dynamically generated based on existing tables. You can initialize all those models with the following line:
+
+    ActiveMusicbrainz.init
+
+The *init* method should be called after establishing a database connection since the library needs to read all the database tables.
+If you are inside a rails project you could put the code above in **config/initializers/active_musicbrainz.rb**.
+
+
 
 ## Contributing
 

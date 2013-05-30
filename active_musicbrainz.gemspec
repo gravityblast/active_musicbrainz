@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'active_musicbrainz/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "active-musicbrainz"
+  spec.name          = "active_musicbrainz"
   spec.version       = ActiveMusicbrainz::VERSION
   spec.authors       = ["Andrea Franz"]
   spec.email         = ["andrea@gravityblast.com"]
