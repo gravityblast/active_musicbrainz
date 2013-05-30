@@ -65,6 +65,10 @@ Here some examples:
     artist.release_groups.first.releases.first.mediums.first.format
      => #<ActiveMusicbrainz::Model::MediumFormat id: 1, name: "CD", parent: nil, child_order: 0, year: 1982, has_discids: true>
 
+## Author
+
+Andrea Franz - [http://gravityblast.com](http://gravityblast.com)
+
 ## Contributing
 
 1. Fork it
