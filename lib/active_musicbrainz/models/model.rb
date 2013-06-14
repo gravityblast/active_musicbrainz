@@ -53,6 +53,11 @@ module ActiveMusicbrainz
         has_name    :artist_name
       end
 
+      model :url do
+        has_many    :l_artist_urls, foreign_key: :entity1
+        has_many    :artists, through: :l_artist_urls
+      end
+
       model :track do
         belongs_to  :track_name, foreign_key: :name
         belongs_to  :recording, foreign_key: :recording
