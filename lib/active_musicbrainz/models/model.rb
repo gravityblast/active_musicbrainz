@@ -20,6 +20,13 @@ module ActiveMusicbrainz
         has_many    :tracks, through: :artist_credits
         has_many    :aliases, foreign_key: :artist
         has_name    :artist_name
+        has_many    :l_artist_urls, foreign_key: :entity0
+        has_many    :urls, through: :l_artist_urls
+      end
+
+      model :l_artist_url do
+        belongs_to :artist, foreign_key: :entity0
+        belongs_to :url, foreign_key: :entity1
       end
 
       model :artist_credit_name do
