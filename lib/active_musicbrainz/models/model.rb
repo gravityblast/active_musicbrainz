@@ -57,6 +57,7 @@ module ActiveMusicbrainz
         belongs_to  :track_name, foreign_key: :name
         belongs_to  :recording, foreign_key: :recording
         belongs_to  :medium, foreign_key: :medium
+        has_one     :release, through: :medium
         has_name    :track_name
         has_artist_credits
       end
