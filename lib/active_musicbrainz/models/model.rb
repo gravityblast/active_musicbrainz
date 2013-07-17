@@ -18,7 +18,7 @@ module ActiveMusicbrainz
         has_many    :releases, through: :release_groups
         has_many    :recordings, through: :artist_credits
         has_many    :tracks, through: :artist_credits
-        has_many    :aliases, foreign_key: :artist
+        has_many    :aliases, foreign_key: :artist, class_name: 'ArtistAlias'
         has_name    :artist_name
         has_many    :l_artist_urls, foreign_key: :entity0
         has_many    :urls, through: :l_artist_urls
@@ -51,6 +51,11 @@ module ActiveMusicbrainz
         belongs_to  :artist_name, foreign_key: :name
         belongs_to  :artist, foreign_key: :artist
         has_name    :artist_name
+      end
+
+      model :url do
+        has_many    :l_artist_urls, foreign_key: :entity1
+        has_many    :artists, through: :l_artist_urls
       end
 
       model :track do
