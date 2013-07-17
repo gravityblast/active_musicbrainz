@@ -76,6 +76,7 @@ module ActiveMusicbrainz
         belongs_to  :release_name, foreign_key: :name
         has_many    :releases, foreign_key: :release_group
         has_name    :release_name
+        has_many    :recordings, through: :releases
         belongs_to  :type, class_name: 'ReleaseGroupPrimaryType', foreign_key: :type
         has_many    :release_group_secondary_type_joins, foreign_key: :release_group
         has_many    :secondary_types, through: :release_group_secondary_type_joins, source: :type
