@@ -92,7 +92,7 @@ module ActiveMusicbrainz
       model :release do
         belongs_to  :release_name, foreign_key: :name
         belongs_to  :release_group, foreign_key: :release_group
-        has_many    :mediums, -> { order('position')  }, foreign_key: :release
+        has_many    :mediums, -> { order('position') }, foreign_key: :release
         has_many    :recordings, through: :mediums
         has_name    :release_name
         has_many    :tracks, through: :mediums
@@ -104,7 +104,7 @@ module ActiveMusicbrainz
 
       model :medium do
         belongs_to  :release, foreign_key: :release
-        has_many    :tracks, foreign_key: :medium
+        has_many    :tracks, -> { order('position') }, foreign_key: :medium
         has_many    :recordings, through: :tracks
         belongs_to  :format, class_name: 'MediumFormat', foreign_key: :format
         belongs_to  :medium_format, foreign_key: :format
