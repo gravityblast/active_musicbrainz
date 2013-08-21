@@ -22,6 +22,7 @@ module ActiveMusicbrainz
         has_name    :artist_name
         has_many    :l_artist_urls, foreign_key: :entity0
         has_many    :urls, through: :l_artist_urls
+        has_gid
       end
 
       model :l_artist_url do
@@ -65,6 +66,7 @@ module ActiveMusicbrainz
         has_one     :release, through: :medium
         has_name    :track_name
         has_artist_credits
+        has_gid
       end
 
       model :release_group_secondary_type do
@@ -85,8 +87,8 @@ module ActiveMusicbrainz
         belongs_to  :type, class_name: 'ReleaseGroupPrimaryType', foreign_key: :type
         has_many    :release_group_secondary_type_joins, foreign_key: :release_group
         has_many    :secondary_types, through: :release_group_secondary_type_joins, source: :type
-
         has_artist_credits
+        has_gid
       end
 
       model :release do
@@ -99,8 +101,8 @@ module ActiveMusicbrainz
         belongs_to  :status, class_name: 'ReleaseStatus', foreign_key: :status
         belongs_to  :packaging, class_name: 'ReleasePackaging', foreign_key: :packaging
         belongs_to  :release_country, foreign_key: :id, primary_key: :release
-
         has_artist_credits
+        has_gid
       end
 
       model :medium do
@@ -120,6 +122,7 @@ module ActiveMusicbrainz
         has_many    :mediums, through: :tracks
         has_name    :track_name
         has_artist_credits
+        has_gid
       end
     end
   end

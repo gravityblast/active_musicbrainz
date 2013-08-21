@@ -17,6 +17,12 @@ module ActiveMusicbrainz
           has_many    :artist_credit_names, through: :artist_credit
           has_many    :artists, through: :artist_credit_names
         end
+
+        def has_gid
+          define_singleton_method :by_gid do |gid|
+            find_by gid: gid
+          end
+        end
       end
     end
   end

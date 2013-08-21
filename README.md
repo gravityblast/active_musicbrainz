@@ -33,7 +33,7 @@ If you are inside a rails project you could put the code above in **config/initi
 Now under the ActiveMusicbrainz::Model module, you have one model for each MusicBrainz table.
 Here some examples:
 
-    artist = ActiveMusicbrainz::Model::Artist.where(gid: '9a709693-b4f8-4da9-8cc1-038c911a61be').first
+    artist = ActiveMusicbrainz::Model::Artist.by_gid '9a709693-b4f8-4da9-8cc1-038c911a61be'
      => #<ActiveMusicbrainz::Model::Artist id: 24146, gid: "9a709693-b4f8-4da9-8cc1-038c911a61be", name: 143497, sort_name: 143497, begin_date_year: 1976, begin_date_month: 3, begin_date_day: 30, end_date_year: nil, end_date_month: nil, end_date_day: nil, type: 1, area: 221, gender: 1, comment: "UK electro artist Simon Green", edits_pending: 0, last_updated: "2013-05-13 11:00:09", ended: false, begin_area: nil, end_area: nil>
 
     artist.name
