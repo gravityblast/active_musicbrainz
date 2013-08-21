@@ -98,6 +98,7 @@ module ActiveMusicbrainz
         has_many    :tracks, through: :mediums
         belongs_to  :status, class_name: 'ReleaseStatus', foreign_key: :status
         belongs_to  :packaging, class_name: 'ReleasePackaging', foreign_key: :packaging
+        belongs_to  :release_country, foreign_key: :id, primary_key: :release
 
         has_artist_credits
       end
