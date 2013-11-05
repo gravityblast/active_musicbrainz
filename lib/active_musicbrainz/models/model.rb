@@ -72,6 +72,7 @@ module ActiveMusicbrainz
       model :release_group do
         has_many    :releases, foreign_key: :release_group
         has_many    :recordings, through: :releases
+        belongs_to  :meta, class_name: 'ReleaseGroupMeta', foreign_key: :id
         belongs_to  :type, class_name: 'ReleaseGroupPrimaryType', foreign_key: :type
         has_many    :release_group_secondary_type_joins, foreign_key: :release_group
         has_many    :secondary_types, through: :release_group_secondary_type_joins, source: :type
@@ -81,6 +82,7 @@ module ActiveMusicbrainz
 
       model :release do
         belongs_to  :release_group, foreign_key: :release_group
+        belongs_to  :meta, class_name: 'ReleaseMeta', foreign_key: :id
         has_many    :mediums, -> { order('medium.position') }, foreign_key: :release
         has_many    :recordings, through: :mediums
         has_many    :tracks, through: :mediums
@@ -97,7 +99,6 @@ module ActiveMusicbrainz
         has_many    :tracks, -> { order('track.position') }, foreign_key: :medium
         has_many    :recordings, through: :tracks
         belongs_to  :format, class_name: 'MediumFormat', foreign_key: :format
-        belongs_to  :medium_format, foreign_key: :format
       end
 
       model :recording do
