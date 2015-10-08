@@ -2,7 +2,7 @@ module ActiveMusicbrainz
   module Model
     def self.build_models
       Factory.define do
-        ActiveRecord::Base.connection.tables.each do |table_name|
+        Base.connection.tables.each do |table_name|
           model table_name
         end
       end
