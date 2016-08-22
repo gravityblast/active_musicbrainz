@@ -6,8 +6,8 @@ require 'active_musicbrainz/version'
 Gem::Specification.new do |spec|
   spec.name          = "active_musicbrainz"
   spec.version       = ActiveMusicbrainz::VERSION
-  spec.authors       = ["Andrea Franz"]
-  spec.email         = ["andrea@gravityblast.com"]
+  spec.authors       = ["Andrea Franz", "Florian Dejonckheere"]
+  spec.email         = ["andrea@gravityblast.com", "florian@floriandejonckheere.be"]
   spec.description   = %q{ActiveRecord models for the MusicBrainz database.}
   spec.summary       = %q{ActiveRecord models the MusicBrainz database}
   spec.homepage      = "https://github.com/pilu/active_musicbrainz"

@@ -28,10 +28,9 @@ module ActiveMusicbrainz
       end
 
       def build_model_class table_name
-        klass = Class.new ActiveRecord::Base do
+        klass = Class.new Base do
           self.table_name = table_name
           self.inheritance_column = :_sti_type
-          include Base
         end
         Model.const_set camelize_table_name(table_name), klass
       end

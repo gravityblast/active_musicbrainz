@@ -30,6 +30,10 @@ Some models are hardcoded, others are dynamically generated based on existing ta
 The *init* method should be called after establishing a database connection since the library needs to read all the database tables.
 If you are inside a rails project you could put the code above in **config/initializers/active_musicbrainz.rb**.
 
+If you want to establish a different database connection for the ActiveMusicbrainz tables you can call the establish_connection method on ActiveMusicbrainz::Module::Base instead of ActiveRecord::Base:
+
+    ActiveMusicbrainz::Model::Base.establish_connection(YAML.load_file('path/to/config.yml'))
+
 Now under the ActiveMusicbrainz::Model module, you have one model for each MusicBrainz table.
 Here some examples:
 

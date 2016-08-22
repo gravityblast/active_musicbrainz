@@ -2,7 +2,7 @@ module ActiveMusicbrainz
   module Model
     def self.build_models
       Factory.define do
-        ActiveRecord::Base.connection.tables.each do |table_name|
+        Base.connection.tables.each do |table_name|
           model table_name
         end
       end
@@ -20,6 +20,9 @@ module ActiveMusicbrainz
         has_many    :aliases, foreign_key: :artist, class_name: 'ArtistAlias'
         has_many    :l_artist_urls, foreign_key: :entity0
         has_many    :urls, through: :l_artist_urls
+        belongs_to  :gender, foreign_key: :gender, optional: true
+        belongs_to  :type, foreign_key: :type, class_name: 'ArtistType', optional: true
+        belongs_to  :area, foreign_key: :area, optional: true
         has_gid
       end
 
@@ -44,6 +47,23 @@ module ActiveMusicbrainz
 
       model :artist_alias do
         belongs_to  :artist, foreign_key: :artist
+      end
+
+      model :artist_type do
+        has_many    :artists, foreign_key: :type
+      end
+
+      model :gender do
+        has_many    :artists, foreign_key: :gender
+      end
+
+      model :area do
+        has_many    :artists, foreign_key: :area
+        belongs_to  :type, foreign_key: :type, class_name: 'AreaType', optional: true
+      end
+
+      model :area_type do
+        has_many    :areas, foreign_key: :type
       end
 
       model :url do
