@@ -20,6 +20,7 @@ module ActiveMusicbrainz
         has_many    :aliases, foreign_key: :artist, class_name: 'ArtistAlias'
         has_many    :l_artist_urls, foreign_key: :entity0
         has_many    :urls, through: :l_artist_urls
+        belongs_to  :gender, foreign_key: :gender, optional: true
         has_gid
       end
 
@@ -44,6 +45,10 @@ module ActiveMusicbrainz
 
       model :artist_alias do
         belongs_to  :artist, foreign_key: :artist
+      end
+
+      model :gender do
+        has_many    :artists, foreign_key: :gender
       end
 
       model :url do
